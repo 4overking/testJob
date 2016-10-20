@@ -1,4 +1,5 @@
-my_project
+Test project
 ==========
 
-A Symfony project created on October 17, 2016, 5:23 pm.
+To deploy this run ./bin/deploy
+
