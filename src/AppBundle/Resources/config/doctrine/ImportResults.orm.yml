@@ -1,0 +1,22 @@
+AppBundle\Entity\ImportResults:
+    type: entity
+    table: import_results
+    repositoryClass: AppBundle\Repository\ImportResultsRepository
+    id:
+        id:
+            type: integer
+            id:   true
+            generator:
+                strategy: AUTO
+    fields:
+        totalCount:
+            type:   integer
+            column: total_count
+        newCount:
+            type:   integer
+            column: new_count
+        updatedCount:
+            type:   string
+            column: updated_count
+        datetime:
+            type: datetime

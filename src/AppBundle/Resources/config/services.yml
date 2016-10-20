@@ -1,0 +1,9 @@
+services:
+    app.xml_import_service:
+        class: AppBundle\Service\XmlImportService
+        arguments:
+            - '@doctrine.orm.entity_manager'
+    app.form.type.comment:
+        class: AppBundle\Form\Type\CommentType
+        tags:
+            - { name: form.type, alias: comment }

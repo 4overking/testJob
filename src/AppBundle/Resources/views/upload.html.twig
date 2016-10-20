@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    {# @var \AppBundle\Entity\ImportResults result #}
+    {% if null!= result %}
+        <p>Totally handled records:<span>{{ result.totalCount }}</span></p>
+        <p>New records:<span>{{ result.newCount }}</span></p>
+        <p>Updated records:<span>{{ result.updatedCount }}</span></p>
+    {% endif %}
+        {{ form_start(form) }}
+        {{ form_widget(form) }}
+        {{ form_end(form) }}
+        <button class="btn btn-download" id="upload-button-trigger">Upload XML</button>
+{% endblock %}
+{% block javascripts %}
+    <script src="{{ asset('js/upload.js') }}"></script>
+{% endblock %}

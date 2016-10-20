@@ -1,0 +1,22 @@
+AppBundle\Entity\Comment:
+    properties:
+        name:
+            - NotBlank:
+                message: Author name not be blank
+            - Regex:
+                pattern: '/[a-zA-Z]/'
+                message: Your name cannot contain a number
+            - Length:
+                max:        255
+                maxMessage: Author name is too long
+        email:
+            - NotBlank:
+                message: Email should not be blank
+            - Email:
+                message: Email is not valid
+            - Length:
+                max:        255
+                maxMessage: Author is too long
+        text:
+            - NotBlank:
+                message: Comment text should not be blank

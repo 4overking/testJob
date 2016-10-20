@@ -1,0 +1,25 @@
+index:
+    path: /
+    defaults: { _controller: AppBundle:Main:index }
+    methods: [ GET ]
+
+product:
+    path: /product/{id}
+    defaults: { _controller: AppBundle:Main:product }
+    requirements: { id: \d+ }
+    methods: [ GET ]
+
+comment:
+    path: /product/{id}/comment
+    defaults: { _controller: AppBundle:Main:comment }
+    requirements: { id: \d+ }
+    methods: [ GET, POST]
+
+upload:
+    path:    /upload
+    defaults: { _controller: AppBundle:Import:upload }
+    methods: [ GET, POST ]
+search:
+    path:    /search
+    defaults: { _controller: AppBundle:Main:search }
+    methods: [ POST ]

@@ -1,0 +1,16 @@
+<div class="col-xs-12">
+    <div class="well">
+        <div class="comment_name">
+            {{ comment.name }}
+        </div>
+        <div class="comment_email">
+            {{ comment.email }}
+        </div>
+        <div class="comment_datetime">
+            {{ comment.datetime | date("m/d/Y")}}
+        </div>
+        <div class="comment_text">
+            {{ comment.text }}
+        </div>
+    </div>
+</div>

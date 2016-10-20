@@ -1,0 +1,63 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+    <div class="row">
+        <div class="col-xs-8">
+            <div class="row">
+                <div class="col-xs-12">
+                    <label>Name</label> <span>{{ product.title }}</span>
+                </div>
+                <div class="col-xs-12">
+                    <label>Price:</label> <span>{{ product.price }}</span>
+                </div>
+                <div class="col-xs-12">
+                    <label>Rating:</label> <span>{{ product.rating }}</span>
+                </div>
+                <div class="col-xs-12">
+                    <label>Description</label> <span>{{ product.description }}</span>
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-4">
+            <img class="img-thumbnail" src="{{ product.image }}" alt="{{ product.category.title }}">
+        </div>
+    </div>
+    <br>
+    <div class="row">
+        <div class="col-xs-8">
+            <h2>Comments</h2>
+        </div>
+        <div class="col-xs-4" style="margin-top: 15px;">
+            <a href="#" data-url="{{ path('comment', {'id': product.id}) }}" id="showCommentForm">
+                <button type="button" class="btn btn-info">Left a comment</button>
+            </a>
+        </div>
+
+    </div>
+    <div class="row" id="commets-wrapper">
+        {% for comment in comments %}
+            {% include 'AppBundle::comment_single.html.twig' with {'comment': comment} %}
+        {% endfor %}
+    </div>
+
+    <div class="modal fade" id="comment-modal" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <h4 class="modal-title" id="exampleModalLabel">New message</h4>
+                </div>
+                <div class="modal-body" id="comment-modal-window">
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary" id="comment-submit">Save</button>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}
+{% block javascripts %}
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+{% endblock %}
+

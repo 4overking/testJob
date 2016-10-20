@@ -1,0 +1,32 @@
+AppBundle\Entity\Product:
+    type: entity
+    table: product
+    repositoryClass: AppBundle\Repository\ProductRepository
+    id:
+        id:
+            type: integer
+            id:   true
+            generator:
+                strategy: AUTO
+    fields:
+        product_id:
+            type: integer
+        title:
+            type: string
+        description:
+            type: string
+        rating:
+            type: float
+        price:
+            type:     float
+            nullable: true
+        image:
+            type: string
+    manyToOne:
+        category:
+            targetEntity: Category
+            inversedBy:   products
+    oneToMany:
+        comments:
+            targetEntity: Comment
+            mappedBy:     product
